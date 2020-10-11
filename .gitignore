@@ -23,6 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # api keys
-Firebase.js
-FirebaseDev.js
-FirebaseProd.js
+sr/Firebase.js
+sr/FirebaseDev.js
+sr/FirebaseProd.js
