@@ -4,8 +4,7 @@ import Card from '@material-ui/core/es/Card';
 import CardHeader from '@material-ui/core/es/CardHeader';
 import CardContent from '@material-ui/core/es/CardContent';
 import ServiceUtil from '../../../service/ServiceUtil';
-import { palette } from '../../colors/Colors';
-
+import styles from './style'
 const schema = {
   type: 'object',
   required: ['email', 'password'],
@@ -27,21 +26,6 @@ const uiSchema = {
 };
 
 
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    paddingTop: '5%',
-    backgroundColor: palette.secondaryDarkColor,
-    height: '100vh',
-    width: '100%',
-    alignItems: 'center',
-
-  },
-  card: {
-    width: '50%',
-  },
-};
 
 class Login extends Component {
   constructor(props) {
@@ -86,7 +70,7 @@ class Login extends Component {
         <div style={styles.container}>
           <Card style={styles.card}>
             <CardHeader
-              title="Acesso Administrativo Guia Comercial"
+              title="Melhores do ano Sou Mais Minas"
             />
             <CardContent>
               <Bootstrap4Theme

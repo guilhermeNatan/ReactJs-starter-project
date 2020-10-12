@@ -9,7 +9,7 @@ import LayoutInterno from '../layout/pages/LayoutInterno';
 import '../resources/css/style.css';
 import reducers from '../reducers';
 import 'react-toastify/dist/ReactToastify.css';
-import Login from '../layout/pages/login/Login';
+import { Login } from '../layout/pages/Login';
 
 const history = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
