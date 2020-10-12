@@ -4,7 +4,7 @@ import Card from '@material-ui/core/es/Card';
 import CardHeader from '@material-ui/core/es/CardHeader';
 import CardContent from '@material-ui/core/es/CardContent';
 import ServiceUtil from '../../../service/ServiceUtil';
-import styles from './style'
+import styles from './LoginStyle'
 const schema = {
   type: 'object',
   required: ['email', 'password'],

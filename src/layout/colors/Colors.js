@@ -1,4 +1,4 @@
-export const palette = {
+export default {
   primaryColor: '#eff0f3',
   primaryLightColor: '#ffffff',
   primaryDarkColor: '#bdbec0',

@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 import {createBrowserHistory} from 'history';
 import {ToastContainer} from 'react-toastify';
-import LayoutInterno from '../layout/pages/LayoutInterno';
+import { LayoutInterno } from '../layout/pages/LayoutInterno';
 import '../resources/css/style.css';
 import reducers from '../reducers';
 import 'react-toastify/dist/ReactToastify.css';

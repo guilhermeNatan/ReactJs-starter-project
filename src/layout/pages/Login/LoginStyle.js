@@ -1,4 +1,5 @@
-import {palette} from "../../colors/Colors";
+import  {Colors as palette} from "../../colors";
+
 
 export default {
     container: {
