@@ -10,6 +10,9 @@ import '../resources/css/style.css';
 import reducers from '../reducers';
 import 'react-toastify/dist/ReactToastify.css';
 import { Login } from '../layout/pages/Login';
+import {PrivateRoute} from "./PrivateRoute";
+import {PesquisaScreen} from "../layout/pages/Pesquisa";
+import {FORMULARIO} from "./Paths";
 
 const history = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -38,6 +41,7 @@ export const renderizarComLayoutLogin = Componente => (props) => {
 };
 
 const login = renderizarComLayoutLogin(Login);
+const pesquisa = renderizarComLayoutPadrao(PesquisaScreen)
 
 class Rotas extends Component {
   render() {
@@ -47,6 +51,7 @@ class Rotas extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={login} />
+              <PrivateRoute path={FORMULARIO} component={pesquisa} />
               <Route render={() => <div>Ops : página não encontrada</div>} />
             </Switch>
             <ToastContainer />
