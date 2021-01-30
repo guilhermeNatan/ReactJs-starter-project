@@ -4,9 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 import {Header} from './components/Header';
 import {Menu} from './components/Menu';
-import styles from "./LayoutInternoStyle";
+import styles from "./InternalLayoutStyle";
 
-class LayoutInterno extends React.Component {
+class InternalLayout extends React.Component {
   render() {
     const {
       classes, theme, children, history,
@@ -27,7 +27,7 @@ class LayoutInterno extends React.Component {
   }
 }
 
-LayoutInterno.propTypes = {
+InternalLayout.propTypes = {
   classes: PropTypes.object.isRequired,
   // Injected by the documentation to work in an iframe.
   // You won't need it on your project.
@@ -35,4 +35,4 @@ LayoutInterno.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(LayoutInterno);
+export default withStyles(styles, { withTheme: true })(InternalLayout);

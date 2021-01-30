@@ -5,20 +5,21 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 import {createBrowserHistory} from 'history';
 import {ToastContainer} from 'react-toastify';
-import { LayoutInterno } from '../layout/pages/LayoutInterno';
+import { InternalLayout } from '../layout/internal-layout';
 import '../resources/css/style.css';
 import reducers from '../reducers';
 import 'react-toastify/dist/ReactToastify.css';
-import { Login } from '../layout/pages/Login';
+import { Login } from '../pages/Login';
 import {PrivateRoute} from "./PrivateRoute";
-import {PesquisaScreen} from "../layout/pages/Pesquisa";
+import {PesquisaScreen} from "../pages/Pesquisa";
 import {FORMULARIO} from "./Paths";
-
+import { ThemeProvider } from '@material-ui/core';
+import theme from '../theme';
 const history = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const renderizarComLayoutPadrao = Componente => props => (
-  <LayoutInterno>
+  <InternalLayout>
     <Componente
       params={props.match.params}
       router={props}
@@ -26,7 +27,7 @@ const renderizarComLayoutPadrao = Componente => props => (
       isCriar={props.match.params.operacao === 'criar'}
       history={history}
     />
-  </LayoutInterno>
+  </InternalLayout>
 );
 
 export const renderizarComLayoutLogin = Componente => (props) => {
@@ -46,19 +47,21 @@ const pesquisa = renderizarComLayoutPadrao(PesquisaScreen)
 class Rotas extends Component {
   render() {
     return (
-      <Provider store={createStoreWithMiddleware(reducers)}>
-        <BrowserRouter>
-          <div>
-            <Switch>
-              <Route exact path="/" component={login} />
-              <PrivateRoute path={FORMULARIO} component={pesquisa} />
-              <Route render={() => <div>Ops : página não encontrada</div>} />
-            </Switch>
-            <ToastContainer />
-          </div>
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <Provider store={createStoreWithMiddleware(reducers)}>
+              <BrowserRouter>
+                <div>
+                  <Switch>
+                    <Route exact path="/" component={login} />
+                    <Route path={FORMULARIO} component={pesquisa} />
+                    <Route render={() => <div>Ops : página não encontrada</div>} />
+                  </Switch>
+                  <ToastContainer />
+                </div>
+              </BrowserRouter>
 
-      </Provider>
+            </Provider>
+        </ThemeProvider>
     );
   }
 }

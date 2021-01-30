@@ -14,7 +14,6 @@ import Notifications from '@material-ui/icons/Notifications';
 import NewReleases from '@material-ui/icons/NewReleases';
 
 import { withRouter } from 'react-router-dom';
-import ServiceUtil from '../../../../../service/ServiceUtil';
 import {MLink} from '../MLink';
 
 class Menu extends Component {
@@ -72,7 +71,7 @@ class Menu extends Component {
                 button
                 key="sair"
                 onClick={async () => {
-                  await ServiceUtil.logout();
+                  await console.log('realizar logout');
                   history.push('/');
                 }}
               >

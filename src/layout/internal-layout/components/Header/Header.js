@@ -6,14 +6,13 @@ import MenuIcon from '@material-ui/core/SvgIcon/SvgIcon';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
-import  {Colors as palette}  from '../../../../colors';
 
 class Header extends Component {
   render() {
     const { classes } = this.props;
     return (
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar style={{ backgroundColor: palette.secondaryDarkColor }}>
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="Open drawer"
@@ -22,8 +21,7 @@ class Header extends Component {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" color="inherit" component="p" noWrap>
-
-            { 'Guia Comercial Sou Mais Minas '}
+            { 'Bem vindo ao Jogo Justo'}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -3,9 +3,8 @@ import Bootstrap4Theme from 'react-jsonschema-form-bs4';
 import Card from '@material-ui/core/es/Card';
 import CardHeader from '@material-ui/core/es/CardHeader';
 import CardContent from '@material-ui/core/es/CardContent';
-import ServiceUtil from '../../../service/ServiceUtil';
 import styles from './LoginStyle'
-import {FORMULARIO} from "../../../router/Paths";
+import {FORMULARIO} from "../../router/Paths";
 const schema = {
   type: 'object',
   required: ['email', 'password'],
@@ -46,22 +45,18 @@ class Login extends Component {
   }
 
     onSubmit = ({ formData }) => {
+      const { history } = this.props;
       if (formData) {
-        ServiceUtil.tryLogin(formData)
-          // .then(() => ServiceUtil.getUserInformations())
-          // .then((infouser) => {
-          //   if (infouser.perfil !== 'ADMIN') {
-          //     throw Error('Acesso negado');
-          //   }
-          // })
-          .then(() => {
-            const { history } = this.props;
-            return history.push(FORMULARIO);
-          })
-          .catch((error) => {
-            console.log(error.mensage);
-            this.setState({ erroMessage: error.message });
-          });
+        return history.push(FORMULARIO)
+        // ServiceUtil.tryLogin(formData)
+        //   .then(() => {
+        //     const { history } = this.props;
+        //     return history.push(FORMULARIO);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error.mensage);
+        //     this.setState({ erroMessage: error.message });
+        //   });
       }
     }
 
