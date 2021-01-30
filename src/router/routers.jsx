@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 import {createBrowserHistory} from 'history';
 import {ToastContainer} from 'react-toastify';
-import { LayoutInterno } from '../layout/pages/LayoutInterno';
+import { InternalLayout } from '../layout/internal-layout';
 import '../resources/css/style.css';
 import reducers from '../reducers';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,7 +19,7 @@ const history = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const renderizarComLayoutPadrao = Componente => props => (
-  <LayoutInterno>
+  <InternalLayout>
     <Componente
       params={props.match.params}
       router={props}
@@ -27,7 +27,7 @@ const renderizarComLayoutPadrao = Componente => props => (
       isCriar={props.match.params.operacao === 'criar'}
       history={history}
     />
-  </LayoutInterno>
+  </InternalLayout>
 );
 
 export const renderizarComLayoutLogin = Componente => (props) => {

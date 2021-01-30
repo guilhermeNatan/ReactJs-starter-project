@@ -9,7 +9,7 @@ const styles = {
   },
 };
 
-function Mlink({ to, classes, children }) {
+function MLink({ to, classes, children }) {
   return (
     <Link to={to} style={styles.link}>
       {
@@ -19,9 +19,9 @@ function Mlink({ to, classes, children }) {
   );
 }
 
-Mlink.propTypes = {
+MLink.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(Mlink);
+export default withStyles(styles)(MLink);

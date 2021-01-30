@@ -21,7 +21,6 @@ class Header extends Component {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" color="inherit" component="p" noWrap>
-
             { 'Bem vindo ao Jogo Justo'}
           </Typography>
         </Toolbar>
