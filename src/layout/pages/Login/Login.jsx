@@ -46,22 +46,18 @@ class Login extends Component {
   }
 
     onSubmit = ({ formData }) => {
+      const { history } = this.props;
       if (formData) {
-        ServiceUtil.tryLogin(formData)
-          // .then(() => ServiceUtil.getUserInformations())
-          // .then((infouser) => {
-          //   if (infouser.perfil !== 'ADMIN') {
-          //     throw Error('Acesso negado');
-          //   }
-          // })
-          .then(() => {
-            const { history } = this.props;
-            return history.push(FORMULARIO);
-          })
-          .catch((error) => {
-            console.log(error.mensage);
-            this.setState({ erroMessage: error.message });
-          });
+        return history.push(FORMULARIO)
+        // ServiceUtil.tryLogin(formData)
+        //   .then(() => {
+        //     const { history } = this.props;
+        //     return history.push(FORMULARIO);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error.mensage);
+        //     this.setState({ erroMessage: error.message });
+        //   });
       }
     }
 

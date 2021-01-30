@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Redirect, Route} from 'react-router-dom';
-import firebase from '../../Firebase';
 
 
 class PrivateRoute extends Component {
@@ -12,13 +11,7 @@ class PrivateRoute extends Component {
   }
 
   componentDidMount = async () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-          console.log('user', user);
-        return this.setState({ user });
-      }
-      return this.setState({user: null});
-    });
+
   }
 
   render() {
