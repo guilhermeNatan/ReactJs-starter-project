@@ -13,7 +13,8 @@ import { Login } from '../layout/pages/Login';
 import {PrivateRoute} from "./PrivateRoute";
 import {PesquisaScreen} from "../layout/pages/Pesquisa";
 import {FORMULARIO} from "./Paths";
-
+import { ThemeProvider } from '@material-ui/core';
+import theme from '../theme';
 const history = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
@@ -46,19 +47,21 @@ const pesquisa = renderizarComLayoutPadrao(PesquisaScreen)
 class Rotas extends Component {
   render() {
     return (
-      <Provider store={createStoreWithMiddleware(reducers)}>
-        <BrowserRouter>
-          <div>
-            <Switch>
-              <Route exact path="/" component={login} />
-              <PrivateRoute path={FORMULARIO} component={pesquisa} />
-              <Route render={() => <div>Ops : página não encontrada</div>} />
-            </Switch>
-            <ToastContainer />
-          </div>
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <Provider store={createStoreWithMiddleware(reducers)}>
+              <BrowserRouter>
+                <div>
+                  <Switch>
+                    <Route exact path="/" component={login} />
+                    <Route path={FORMULARIO} component={pesquisa} />
+                    <Route render={() => <div>Ops : página não encontrada</div>} />
+                  </Switch>
+                  <ToastContainer />
+                </div>
+              </BrowserRouter>
 
-      </Provider>
+            </Provider>
+        </ThemeProvider>
     );
   }
 }
