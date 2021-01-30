@@ -3,9 +3,8 @@ import Bootstrap4Theme from 'react-jsonschema-form-bs4';
 import Card from '@material-ui/core/es/Card';
 import CardHeader from '@material-ui/core/es/CardHeader';
 import CardContent from '@material-ui/core/es/CardContent';
-import ServiceUtil from '../../../service/ServiceUtil';
 import styles from './LoginStyle'
-import {FORMULARIO} from "../../../router/Paths";
+import {FORMULARIO} from "../../router/Paths";
 const schema = {
   type: 'object',
   required: ['email', 'password'],
